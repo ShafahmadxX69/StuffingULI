@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StuffingSim</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Stuffing Simulation</h1>
+    <section class="input-section">
+      <label for="model">Model:</label>
+      <select id="model"></select>
+
+      <label for="size">Size:</label>
+      <select id="size"></select>
+
+      <label for="qty">Quantity:</label>
+      <input type="number" id="qty" placeholder="Masukkan jumlah barang" />
+
+      <label for="container">Container Type:</label>
+      <select id="container">
+        <option value="40HQ">40HQ (2350 cuft)</option>
+        <option value="40GP">40GP (2000 cuft)</option>
+        <option value="20GP">20GP (900 cuft)</option>
+      </select>
+
+      <button onclick="simulateStuffing()">Simulate</button>
+    </section>
+
+    <section class="result-section">
+      <h3>Hasil Simulasi</h3>
+      <div id="result"></div>
+      <div class="status-indicator">
+        <div id="load-bar"></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
