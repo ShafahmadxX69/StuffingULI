@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StuffingSim</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StuffingSim 3D</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Stuffing Simulation</h1>
+    <h1>StuffingSim – 3D Container Stuffing Simulator</h1>
+
     <section class="input-section">
       <label for="model">Model:</label>
       <select id="model"></select>
@@ -18,25 +18,33 @@
       <select id="size"></select>
 
       <label for="qty">Quantity:</label>
-      <input type="number" id="qty" placeholder="Masukkan jumlah barang" />
+      <input type="number" id="qty" value="10" />
 
       <label for="container">Container Type:</label>
       <select id="container">
-        <option value="40HQ">40HQ (2350 cuft)</option>
-        <option value="40GP">40GP (2000 cuft)</option>
-        <option value="20GP">20GP (900 cuft)</option>
+        <option value="20GP">20GP – 33 m³</option>
+        <option value="40GP">40GP – 67 m³</option>
+        <option value="40HQ">40HQ – 76 m³</option>
       </select>
 
       <button onclick="simulateStuffing()">Simulate</button>
     </section>
 
     <section class="result-section">
-      <h3>Hasil Simulasi</h3>
+      <h3>Simulation Result:</h3>
       <div id="result"></div>
       <div class="status-indicator">
         <div id="load-bar"></div>
       </div>
     </section>
+
+    <section class="canvas-section">
+      <h3>3D Container View</h3>
+      <div id="canvas3d"></div>
+    </section>
   </div>
+
+  <!-- JS Module -->
+  <script type="module" src="main.js"></script>
 </body>
 </html>
