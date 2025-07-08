@@ -22,7 +22,7 @@ const containerDimensions = {
 const cuftPerCubicCm = 0.0000353;
 
 window.onload = function() {
-    const modelInput = document.getElementById("model");
+  const modelInput = document.getElementById("model");
   const sizeInput = document.getElementById("size");
   const modelList = document.getElementById("model-list");
   const sizeList = document.getElementById("size-list");
@@ -44,8 +44,6 @@ window.onload = function() {
       }
     }
   });
-
-  modelSelect.dispatchEvent(new Event("change"));
 };
 
 function simulateStuffing() {
@@ -53,6 +51,11 @@ function simulateStuffing() {
   const size = document.getElementById("size").value;
   const qty = parseInt(document.getElementById("qty").value);
   const containerKey = document.getElementById("container").value;
+
+  if (!sizeDictionary[model] || !sizeDictionary[model][size]) {
+    alert("Model dan Size tidak ditemukan dalam database.");
+    return;
+  }
 
   const dims = sizeDictionary[model][size];
   const container = containerDimensions[containerKey];
