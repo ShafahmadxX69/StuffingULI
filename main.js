@@ -22,24 +22,26 @@ const containerDimensions = {
 const cuftPerCubicCm = 0.0000353;
 
 window.onload = function() {
-  const modelSelect = document.getElementById("model");
-  const sizeSelect = document.getElementById("size");
+    const modelInput = document.getElementById("model");
+  const sizeInput = document.getElementById("size");
+  const modelList = document.getElementById("model-list");
+  const sizeList = document.getElementById("size-list");
 
   for (const model in sizeDictionary) {
-    const option = document.createElement("option");
-    option.value = model;
-    option.textContent = model;
-    modelSelect.appendChild(option);
+    const opt = document.createElement("option");
+    opt.value = model;
+    modelList.appendChild(opt);
   }
 
-  modelSelect.addEventListener("change", function () {
-    sizeSelect.innerHTML = "";
-    const sizes = sizeDictionary[modelSelect.value];
-    for (const size in sizes) {
-      const opt = document.createElement("option");
-      opt.value = size;
-      opt.textContent = size;
-      sizeSelect.appendChild(opt);
+  modelInput.addEventListener("input", function () {
+    const selectedModel = modelInput.value;
+    sizeList.innerHTML = "";
+    if (sizeDictionary[selectedModel]) {
+      for (const size in sizeDictionary[selectedModel]) {
+        const opt = document.createElement("option");
+        opt.value = size;
+        sizeList.appendChild(opt);
+      }
     }
   });
 
