@@ -1,0 +1,12 @@
+{
+  "name": "stuffing-uploader",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2",
+    "googleapis": "^132.0.0",
+    "cors": "^2.8.5"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
