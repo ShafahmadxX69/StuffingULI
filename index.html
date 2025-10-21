@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StuffingSim 3D</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stuffing List Uploader</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; margin: 0;
+    }
+    .drop-zone {
+      width: 400px; height: 200px;
+      border: 3px dashed #d0d0d0;
+      border-radius: 20px;
+      background: white;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .drop-zone.dragover { border-color: #3b82f6; background: #eaf3ff; }
+    .drop-zone input { display: none; }
+    button {
+      margin-top: 15px; padding: 10px 20px;
+      border: none; border-radius: 10px;
+      background: #3b82f6; color: white; font-weight: bold;
+      cursor: pointer; transition: 0.3s;
+    }
+    button:hover { background: #2563eb; }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>StuffingSim – 3D Container Stuffing Simulator</h1>
-
-    <section class="input-section">
-      <label for="model">Model:</label>
-      <input list="model-list" id="model" name="model">
-      <datalist id="model-list"></datalist>
-
-      <label for="size">Size:</label>
-      <input list="size-list" id="size" name="size">
-      <datalist id="size-list"></datalist>
-
-      <label for="qty">Quantity:</label>
-      <input type="number" id="qty" value="10" />
-
-      <label for="container">Container Type:</label>
-      <select id="container">
-        <option value="20GP">20GP – 33 m³</option>
-        <option value="40GP">40GP – 67 m³</option>
-        <option value="40HQ">40HQ – 76 m³</option>
-      </select>
-
-      <button onclick="simulateStuffing()">Simulate</button>
-    </section>
-
-    <section class="result-section">
-      <h3>Simulation Result:</h3>
-      <div id="result"></div>
-      <div class="status-indicator">
-        <div id="load-bar"></div>
-      </div>
-    </section>
-
-    <section class="canvas-section">
-      <h3>3D Container View</h3>
-      <div id="canvas3d"></div>
-    </section>
+  <div class="drop-zone" id="dropZone">
+    <p>Drop your Excel file here or</p>
+    <button id="fileBtn">Choose File</button>
+    <input type="file" id="fileInput" accept=".xlsx, .xls">
   </div>
 
-  <!-- JS Module -->
-  <script type="module" src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
